@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Esteban</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffebee;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Estilo de la caja */
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #ff4081;
+            position: relative;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.5s;
+        }
+
+        .box::before { /* Cinta horizontal */
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            background: #f50057;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .box::after { /* Cinta vertical */
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background: #f50057;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Animación de vibración (3 segundos) */
+        .shaking {
+            animation: shake 0.2s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            50% { transform: translate(-1px, -2px) rotate(-1deg); }
+            100% { transform: translate(1px, 1px) rotate(0deg); }
+        }
+
+        /* Mensaje oculto */
+        #message {
+            display: none;
+            font-size: 2.5rem;
+            color: #d81b60;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* El beso volador */
+        .kiss {
+            position: fixed;
+            font-size: 5rem;
+            display: none;
+            user-select: none;
+            z-index: 100;
+        }
+
+        @keyframes flyKiss {
+            0% { bottom: 20%; opacity: 1; transform: scale(1); }
+            100% { bottom: 80%; opacity: 0; transform: scale(3); }
+        }
+
+        .instruccion {
+            color: #888;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" onclick="openBox()">
+    <p class="instruccion" id="hint">Haz clic en el regalo</p>
+    <div 

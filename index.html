@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Temporizador con Alarma</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input {
+      width: 60px;
+      padding: 8px;
+      margin: 5px;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #display {
+      font-size: 2.5em;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #333;
+    }
+    .label {
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Temporizador</h1>
+    <div>
+      <input type="number" id="minutes" min="0" max="59" value="0" />
+      <span class="label">Minutos</span>
+      <input type="number" id="seconds" min="0" max="59" value="0" />
+      <span class="label">Segundos</span>
+    </div>
+    <div id="display">00:00</div>
+    <button onclick="startTimer()">Iniciar</button>
+    <button onclick="resetTimer()">Reiniciar</button>
+  </div>
+
+  <audio id="alarm" preload="auto">
+    <source src="data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAA
